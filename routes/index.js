@@ -4,9 +4,13 @@ const csrf = require('csurf');
 
 var csrfProtection = csrf( { cookie: true } );
 
-/* GET home page. */
+
 router.get('/', csrfProtection, function(req, res, next) {
-  res.render('login', { csrfToken: req.csrfToken()});
+  res.render('loginForm', { csrfToken: req.csrfToken()});
 });
+
+router.post('/process', csrfProtection, function(req, res, next){
+  res.send('Successfully Validated!')
+} )
 
 module.exports = router;
