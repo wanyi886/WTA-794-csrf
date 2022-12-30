@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>LoggedIn</title>
+    <!-- <link rel="stylesheet" href="app.css"> -->
 </head>
 <body>
-    <h1>You are logged In!</h1>
-    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-    <button onclick="logout()">Log Out</button>
+    <div class="container">
+        <h1>You are logged In!</h1>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <button onclick="logout()">Log Out</button>
+    </div>
 </body>
 <script>
     const logout = async () => {

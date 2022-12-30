@@ -8,14 +8,14 @@ var csrfProtection = csrf( { cookie: true } );
 
 
 
-// Completed: get login form
+
 
 router.get('/', csrfProtection, function(req, res, next) {
   res.render('loginForm', { csrfToken: req.csrfToken()});
 });
 
 
-// TODO: post route for login 
+
 router.post('/session', csrfProtection, function(req, res, next){
   
   const { username, password } = req.body;
@@ -30,18 +30,18 @@ router.post('/session', csrfProtection, function(req, res, next){
     res.redirect('/WTA-794/loggedIn')
 
   } else {
-    // TODO: error handler
+    
     const err = new Error('Login failed');
     err.status = 401;
     err.title = 'Login failed';
-    err.message = 'The provided credentials were invalid.';
+    err.message = 'Credentials were invalid. Please try again.';
     // return next(err)
-    return res.json({title: err.title, message: err.message })
+    return res.json({Title: err.title, Message: err.message })
   }
 
 });
 
-// TODO: add get route for loggedIn page
+
 
 router.get("/loggedIn", csrfProtection, function(req, res){
   const reqCookies = req.cookies
@@ -55,7 +55,7 @@ router.get("/loggedIn", csrfProtection, function(req, res){
 });
 
 
-// Completed: add delete route
+
 router.delete("/session", function(req, res) {
   res.clearCookie('session_id');
   res.clearCookie('_csrf');

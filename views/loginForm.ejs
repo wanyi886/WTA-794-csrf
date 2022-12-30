@@ -2,16 +2,32 @@
 <html lang="en">
     <head>
         <title>WTA-794</title>
+        <!-- <link rel="stylesheet" href="app.css"> -->
     </head>
     <body>
-        <h1>Login</h1>
-        <form action="/WTA-794/session" method="POST" >
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <label for="username">User Name</label>
-            <input type="text" name="username">
-            <label for="password">Password</label>
-            <input type="password" name="password">
-            <button type="submit">Sign In</button>
-        </form>
+        <div class="container">
+            <div>
+                <h1>Login</h1>
+            </div>
+            <div >
+                <form action="/WTA-794/session" method="POST" >
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    
+                    <div>
+                        <label for="username">User Name</label>
+                        <input type="text" name="username">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" name="password">
+
+                    </div>
+                    <div>
+                        <button type="submit">Sign In</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
     </body>
 </html>

@@ -6,14 +6,14 @@ var logger = require('morgan');
 
 // var parseForm = bodyParser.urlencoded({ extended: false })
 
-const session = require('express-session');
-const sessionCofig = session({
-  secret: "26267d7287b111eda1eb0242ac120002",
-  cookie: {
-    sameSite: 'strict',
-    httpOnly: true
-  }
-})
+// const session = require('express-session');
+// const sessionCofig = session({
+//   secret: "26267d7287b111eda1eb0242ac120002",
+//   cookie: {
+//     sameSite: 'strict',
+//     httpOnly: true
+//   }
+// })
 
 var indexRouter = require('./routes/index');
 
