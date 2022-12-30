@@ -6,6 +6,15 @@ var logger = require('morgan');
 
 // var parseForm = bodyParser.urlencoded({ extended: false })
 
+const session = require('express-session');
+const sessionCofig = session({
+  secret: "26267d7287b111eda1eb0242ac120002",
+  cookie: {
+    sameSite: 'strict',
+    httpOnly: true
+  }
+})
+
 var indexRouter = require('./routes/index');
 
 var app = express();
@@ -18,6 +27,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// app.use(sessionCofig)
 
 app.use('/WTA-794', indexRouter);
 

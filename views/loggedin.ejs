@@ -6,6 +6,21 @@
 </head>
 <body>
     <h1>You are logged In!</h1>
-    <button>Log Out</button>
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <button onclick="logout()">Log Out</button>
 </body>
+<script>
+    const logout = async () => {
+        const response = await fetch("/WTA-794/session", {
+            method: "DELETE"
+        })
+
+        if (response.ok) {
+            const data = await response.json();
+            alert(data.message)
+        }
+
+        location.href = "./"
+    }
+</script>
 </html>
